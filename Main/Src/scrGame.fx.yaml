@@ -50,3 +50,19 @@ scrGame As screen:
         Y: =152
         ZIndex: =7
 
+    Label4_1 As label:
+        Height: =80
+        Text: ="Colekce dealer"
+        Width: =515
+        X: =320
+        Y: =35
+        ZIndex: =8
+
+    Label4_2 As label:
+        Height: =80
+        Text: ="Colekce hrac"
+        Width: =515
+        X: =320
+        Y: =575
+        ZIndex: =9
+
