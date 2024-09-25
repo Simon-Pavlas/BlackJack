@@ -1,0 +1,79 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://europe002-002.azure-apihub.net/apim/deck-20of-20cards-5f72608f2bbb7f5478-5f804bd9b64a9371b3" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="DeckOfCards" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="Deck Of Cards">Deck of cards to play with peoples hearts</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://europe002-002.azure-apihub.net/apim/deck-20of-20cards-5f72608f2bbb7f5478-5f804bd9b64a9371b3" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <boolean name="GetDecks_responses_default_def_success_def" />
+      <string name="GetDecks_responses_default_def_deck_id_def" />
+      <boolean name="GetDecks_responses_default_def_shuffled_def" />
+      <integer name="GetDecks_responses_default_def_remaining_def" />
+      <object name="GetDecks_responses_default_def">
+        <property name="success" type="boolean" />
+        <property name="deck_id" type="string" />
+        <property name="shuffled" type="boolean" />
+        <property name="remaining" type="integer" />
+      </object>
+      <boolean name="GetCards_responses_default_def_success_def" />
+      <string name="GetCards_responses_default_def_deck_id_def" />
+      <string name="GetCards_responses_default_def_cards_def_items_def_code_def" />
+      <string name="GetCards_responses_default_def_cards_def_items_def_image_def" />
+      <string name="GetCards_responses_default_def_cards_def_items_def_images_def_svg_def" />
+      <string name="GetCards_responses_default_def_cards_def_items_def_images_def_png_def" />
+      <object name="GetCards_responses_default_def_cards_def_items_def_images_def">
+        <property name="svg" type="string" />
+        <property name="png" type="string" />
+      </object>
+      <string name="GetCards_responses_default_def_cards_def_items_def_value_def" />
+      <string name="GetCards_responses_default_def_cards_def_items_def_suit_def" />
+      <object name="GetCards_responses_default_def_cards_def_items_def">
+        <property name="code" type="string" />
+        <property name="image" type="string" />
+        <property name="images" typeRef="GetCards_responses_default_def_cards_def_items_def_images_def" />
+        <property name="value" type="string" />
+        <property name="suit" type="string" />
+      </object>
+      <array typeRef="GetCards_responses_default_def_cards_def_items_def" name="GetCards_responses_default_def_cards_def" />
+      <integer name="GetCards_responses_default_def_remaining_def" />
+      <object name="GetCards_responses_default_def">
+        <property name="success" type="boolean" />
+        <property name="deck_id" type="string" />
+        <property name="cards" typeRef="GetCards_responses_default_def_cards_def" />
+        <property name="remaining" type="integer" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://europe002-002.azure-apihub.net/apim/deck-20of-20cards-5f72608f2bbb7f5478-5f804bd9b64a9371b3">
+    <resource path="/{connectionId}/api/deck/new/shuffle/">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetDecks" actionName="GetDecks" siena:isDeprecated="false">
+        <doc title="Gets X amount of decks&#xA;GetsDecks" />
+        <request>
+          <param style="query" name="deck_count" type="xs:long" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:GetDecks_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/deck/{deck_id}/draw/">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="deck_id" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetCards" actionName="GetCards" siena:isDeprecated="false">
+        <doc title="Drag a Card&#xA;Gets X amount of cards from a deck using the Deck ID in path" />
+        <request>
+          <param style="query" name="count" type="xs:long" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:GetCards_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_deck-20of-20cards-5f72608f2bbb7f5478-5f804bd9b64a9371b3" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>

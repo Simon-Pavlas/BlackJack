@@ -1,1 +1,16 @@
-{}
+{
+  "6dc2a988-df4a-4e00-a597-cc71f167e14a": {
+    "connectionRef": {
+      "displayName": "Deck Of Cards",
+      "iconUri": "https://prodapiicons.cdn.powerappscdn.net/20240925t000000za58d20e1c7434dd1be59eb28f557b29c/customconnectoricon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_deck-20of-20cards-5f72608f2bbb7f5478-5f804bd9b64a9371b3"
+    },
+    "datasets": {},
+    "dataSources": [
+      "DeckOfCards"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "6dc2a988-df4a-4e00-a597-cc71f167e14a"
+  }
+}
