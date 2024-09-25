@@ -1,0 +1,11 @@
+scrMain As screen:
+
+    Label1 As label:
+        Height: =111
+        Size: =18
+        Text: ="Welcome to my blackjack game"
+        Width: =407
+        X: =480
+        Y: =90
+        ZIndex: =1
+

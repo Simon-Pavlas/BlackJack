@@ -1,0 +1,8 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_deck-20of-20cards-5f72608f2bbb7f5478-5f804bd9b64a9371b3",
+    "Name": "DeckOfCards",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo"
+  }
+]

@@ -1,0 +1,52 @@
+scrGame As screen:
+
+    Button1 As button:
+        OnSelect: |-
+            =ClearCollect(colDecks, DeckOfCards.GetDecks({deck_count:6}))
+        Text: ="Get Deck"
+        X: =1110
+        Y: =75
+        ZIndex: =1
+
+    Button1_1 As button:
+        OnSelect: |-
+            =ClearCollect(colCard, DeckOfCards.GetCards(First(colDecks).deck_id,{count:4}));
+            ClearCollect(colCardInfo, First(colCard).cards);
+            Set(FirstCard, Index(colCardInfo, 1));
+            Set(SecondCard, Index(colCardInfo, 2));
+            Set(ThirdCard, Index(colCardInfo, 3));
+            Set(FourthCard, Index(colCardInfo, 4));
+            Set(FifthCard, Index(colCardInfo, 5));
+            Set(SixthCard, Index(colCardInfo, 6));
+            Set(SeventhCard, Index(colCardInfo, 7));
+            Set(EighthCard, Index(colCardInfo, 8));
+            Set(NinethCard, Index(colCardInfo, 9));
+            Set(TenthCard, Index(colCardInfo, 10));
+        Text: ="Get Card"
+        X: =1110
+        Y: =192
+        ZIndex: =4
+
+    Image4 As image:
+        Height: =289
+        Image: =FirstCard.image
+        Width: =218
+        X: =406
+        Y: =232
+        ZIndex: =5
+
+    Image4_1 As image:
+        Height: =289
+        Image: =SecondCard.image
+        Width: =218
+        X: =647
+        Y: =232
+        ZIndex: =6
+
+    Label4 As label:
+        Text: |-
+            ="Card value: " & FirstCard.value + SecondCard.value
+        X: =558
+        Y: =152
+        ZIndex: =7
+
