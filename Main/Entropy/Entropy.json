@@ -3,35 +3,37 @@
   "ControlUniqueGuids": {},
   "ControlUniqueIds": {
     "App": 1,
-    "btnClearCards": 17,
-    "btnGetCardDealer": 16,
-    "btnGetCardPlayer": 15,
-    "btnGetDeck": 8,
-    "Button1": 39,
-    "Button1_1": 10,
-    "Button1_2": 40,
-    "Gallery1": 18,
-    "Gallery1_2": 30,
-    "galleryTemplate1": 19,
-    "galleryTemplate1_2": 31,
+    "btnClearCards": 27,
+    "btnDealerTurn": 28,
+    "btnGetCardDealer": 26,
+    "btnGetCardPlayer": 25,
+    "btnGetDeck": 20,
+    "btnNextHand": 29,
+    "Button1": 18,
+    "Button1_1": 24,
+    "Button1_2": 19,
+    "Gallery1": 11,
+    "Gallery1_2": 8,
+    "galleryTemplate1": 12,
+    "galleryTemplate1_2": 9,
     "Host": 3,
-    "Image1": 20,
-    "Image1_2": 32,
-    "imgDealerCard": 33,
-    "Label1": 5,
-    "Label4": 9,
-    "Label4_1": 37,
-    "Label4_2": 38,
-    "lblLose": 36,
-    "lblWin": 35,
-    "scrGame": 6,
-    "scrMain": 4,
-    "scrStats": 14,
-    "Timer1": 34
+    "Image1": 13,
+    "Image1_2": 10,
+    "imgDealerCard": 14,
+    "Label1": 6,
+    "Label4": 21,
+    "Label4_1": 22,
+    "Label4_2": 23,
+    "lblLose": 17,
+    "lblWin": 16,
+    "scrGame": 7,
+    "scrMain": 5,
+    "scrStats": 4,
+    "Timer1": 15
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "09/26/2024 09:56:16",
+  "HeaderLastSavedDateTimeUTC": "09/26/2024 10:30:28",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "6dc2a988-df4a-4e00-a597-cc71f167e14a": "\"/providers/microsoft.powerapps/apis/shared_deck-20of-20cards-5f72608f2bbb7f5478-5f804bd9b64a9371b3/connections/077aba6025174d2fb6ad07941dcb1834\""
@@ -41,7 +43,7 @@
     "back": "77e8beaf-9cf2-44cc-912b-be5e2d32ca35.png"
   },
   "LocalResourceRootPaths": {
-    "back": "https://docserverpwaprodweu.blob.core.windows.net/d69eac12-8fbe-49a2-8a02-72d07173c769-1/resource/8e0bcfd9-ad7f-470a-8ba6-b07de25374d6.png?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2024-09-26T08%3A18%3A11Z&ske=2024-09-27T08%3A33%3A11Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2024-09-27T08%3A33%3A11Z&sr=b&sp=r&sig=T%2Bl5N3MVuerXk6PQdTcQn%2FZ00UpxUyc5zI%2FqKyxOUa4%3D"
+    "back": "https://docserverpwaprodweu.blob.core.windows.net/86b6a400-0b70-4c04-b199-37ea70992937-1/resource/Assets0Images077e8beaf-9cf2-44cc-912b-be5e2d32ca35.png?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2024-09-26T10%3A02%3A18Z&ske=2024-09-27T10%3A17%3A18Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2024-09-27T10%3A17%3A18Z&sr=b&sp=r&sig=i3dyvT9ep8bbDFTWFcnhp6mtz0UHXhUD%2FkfJjW6LGVc%3D"
   },
   "OrderComponentMetadata": {},
   "OrderComponentTemplate": {},
@@ -62,9 +64,11 @@
   "OverridablePropertiesEntry": {
     "App": {},
     "btnClearCards": {},
+    "btnDealerTurn": {},
     "btnGetCardDealer": {},
     "btnGetCardPlayer": {},
     "btnGetDeck": {},
+    "btnNextHand": {},
     "Button1": {},
     "Button1_1": {},
     "Button1_2": {},
@@ -92,9 +96,11 @@
   "PublishOrderIndices": {
     "App": 0,
     "btnClearCards": 4,
+    "btnDealerTurn": 0,
     "btnGetCardDealer": 4,
     "btnGetCardPlayer": 4,
     "btnGetDeck": 2,
+    "btnNextHand": 0,
     "Button1": 0,
     "Button1_1": 4,
     "Button1_2": 0,
@@ -124,16 +130,17 @@
   "RuleScreenIdWithoutScreen": {},
   "TemplateVersions": {},
   "VolatileProperties": {
-    "AnalysisLoadTime": 0.1849257,
+    "AnalysisLoadTime": 0.2593099,
     "ControlCount": {
-      "button": 6,
-      "gallery": 4,
-      "galleryTemplate": 4,
-      "image": 6,
-      "label": 7,
-      "screen": 3
+      "button": 9,
+      "gallery": 2,
+      "galleryTemplate": 2,
+      "image": 3,
+      "label": 6,
+      "screen": 3,
+      "timer": 1
     },
-    "DeserializationLoadTime": 1.3754172
+    "DeserializationLoadTime": 1.8521786
   },
   "WasLocalDatabaseReferencesEmpty": true
 }
