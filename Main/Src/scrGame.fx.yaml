@@ -1,6 +1,9 @@
 scrGame As screen:
+    OnVisible: |-
+        =Set(varPlayerTurn, false);
+        Set(varGame, 0);
 
-    Button1 As button:
+    btnGetDeck As button:
         Height: =55
         OnSelect: |-
             =ClearCollect(colDecks, DeckOfCards.GetDecks({deck_count:6}))
@@ -36,7 +39,7 @@ scrGame As screen:
         Y: =333
         ZIndex: =7
 
-    Button1_2 As button:
+    btnGetCardPlayer As button:
         Height: =60
         OnSelect: |
             =ClearCollect(colCard, DeckOfCards.GetCards(First(colDecks).deck_id,{count:1}));
@@ -52,7 +55,7 @@ scrGame As screen:
         Y: =708
         ZIndex: =10
 
-    Button1_3 As button:
+    btnGetCardDealer As button:
         Height: =58
         OnSelect: |
             =ClearCollect(colCard, DeckOfCards.GetCards(First(colDecks).deck_id,{count:1}));
@@ -63,7 +66,7 @@ scrGame As screen:
         Y: =710
         ZIndex: =11
 
-    Button1_4 As button:
+    btnClearCards As button:
         OnSelect: |
             =Concurrent(
                 Clear(colCardDealer),
@@ -76,35 +79,81 @@ scrGame As screen:
 
     Gallery1 As gallery.galleryHorizontal:
         DelayItemLoading: =true
-        Height: =220
+        DisplayMode: =DisplayMode.View
+        Height: =163
         Items: =colCardDealer
         LoadingSpinner: =LoadingSpinner.Data
-        TemplateSize: =156
-        Width: =1366
+        ShowScrollbar: =false
+        TemplateSize: =44
+        Width: =427
+        X: =587
+        Y: =131
         ZIndex: =13
 
         Image1 As image:
-            Height: =210
+            Height: =153
             Image: =ThisItem.image
             OnSelect: =Select(Parent)
-            Width: =161
+            Width: =111
             ZIndex: =1
 
-    Gallery1_1 As gallery.galleryHorizontal:
+    Gallery1_2 As gallery.galleryHorizontal:
         DelayItemLoading: =true
-        Height: =220
-        Items: =colCardPlayer
+        DisplayMode: =DisplayMode.View
+        Height: =163
+        Items: |
+            =colCardPlayer
         LoadingSpinner: =LoadingSpinner.Data
         ShowScrollbar: =false
-        TemplateSize: =156
-        Width: =1366
-        Y: =456
-        ZIndex: =14
+        TemplateSize: =46
+        Width: =427
+        X: =587
+        Y: =458
+        ZIndex: =15
 
-        Image1_1 As image:
-            Height: =210
+        Image1_2 As image:
+            Height: =153
             Image: =ThisItem.image
             OnSelect: =Select(Parent)
-            Width: =156
+            Width: =111
             ZIndex: =1
+
+    imgDealerCard As image:
+        Height: =154
+        Image: =back
+        Visible: =varPlayerTurn
+        Width: =111
+        X: =641
+        Y: =136
+        ZIndex: =16
+
+    Timer1 As timer:
+        Duration: =3000
+        Text: =Text(Time(0, 0, Self.Value/1000), "ss")
+        X: =1206
+        ZIndex: =17
+
+    lblWin As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =233
+        Size: =80
+        Text: ="Win"
+        Visible: =If(varGame=1,true,false)
+        Width: =518
+        X: =437
+        Y: =236
+        ZIndex: =18
+
+    lblLose As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =233
+        Size: =80
+        Text: ="You lost"
+        Visible: =If(varGame=2,true,false)
+        Width: =518
+        X: =443
+        Y: =236
+        ZIndex: =19
 
