@@ -8,8 +8,8 @@ scrGame As screen:
         OnSelect: |-
             =ClearCollect(colDecks, DeckOfCards.GetDecks({deck_count:6}))
         Text: ="Get Deck"
-        X: =1107
-        Y: =621
+        X: =1100
+        Y: =628
         ZIndex: =1
 
     Button1_1 As button:
@@ -51,8 +51,8 @@ scrGame As screen:
             Set(SecondCard, Index(colCardInfo, 2));
             */
         Text: ="Get Card for player"
-        X: =1206
-        Y: =708
+        X: =1184
+        Y: =694
         ZIndex: =10
 
     btnGetCardDealer As button:
@@ -62,8 +62,8 @@ scrGame As screen:
             Collect(colCardDealer, First(colCard).cards);
         Text: ="Get Card for dealer"
         Width: =170
-        X: =1014
-        Y: =710
+        X: =1003
+        Y: =694
         ZIndex: =11
 
     btnClearCards As button:
