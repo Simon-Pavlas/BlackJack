@@ -5,11 +5,12 @@ scrGame As screen:
         OnSelect: |-
             =ClearCollect(colDecks, DeckOfCards.GetDecks({deck_count:6}))
         Text: ="Get Deck"
-        X: =1122
-        Y: =165
+        X: =1107
+        Y: =621
         ZIndex: =1
 
     Button1_1 As button:
+        Height: =60
         OnSelect: |-
             =ClearCollect(colCard, DeckOfCards.GetCards(First(colDecks).deck_id,{count:4}));
             ClearCollect(colCardInfo, First(colCard).cards);
@@ -23,44 +24,87 @@ scrGame As screen:
             Set(EighthCard, Index(colCardInfo, 8));
             Set(NinethCard, Index(colCardInfo, 9));
             Set(TenthCard, Index(colCardInfo, 10));
-        Text: ="Get Card"
-        X: =1122
-        Y: =343
+        Text: ="Get Card / unused"
+        X: =1206
+        Y: =273
         ZIndex: =4
-
-    Image4 As image:
-        Height: =213
-        Image: =//FirstCard.image
-        Width: =154
-        X: =622
-        Y: =555
-        ZIndex: =5
-
-    Image4_1 As image:
-        Height: =213
-        Image: =//SecondCard.image
-        Width: =164
-        X: =776
-        Y: =555
-        ZIndex: =6
 
     Label4 As label:
         Text: |-
             ="Card value: " & If(!IsNumeric(FirstCard.value),10 ,FirstCard.value) + If(!IsNumeric(SecondCard.value),10 ,SecondCard.value)
-        X: =570
-        Y: =502
+        X: =1216
+        Y: =333
         ZIndex: =7
 
-    Label4_1 As label:
-        Height: =80
-        Text: ="Colekce dealer"
-        Width: =515
-        ZIndex: =8
+    Button1_2 As button:
+        Height: =60
+        OnSelect: |
+            =ClearCollect(colCard, DeckOfCards.GetCards(First(colDecks).deck_id,{count:1}));
+            
+            Collect(colCardPlayer, First(colCard).cards);
+            
+            /*
+            Set(FirstCard, Index(colCardInfo, 1));
+            Set(SecondCard, Index(colCardInfo, 2));
+            */
+        Text: ="Get Card for player"
+        X: =1206
+        Y: =708
+        ZIndex: =10
 
-    Label4_2 As label:
-        Height: =80
-        Text: ="Colekce hrac"
-        Width: =515
-        Y: =378
-        ZIndex: =9
+    Button1_3 As button:
+        Height: =58
+        OnSelect: |
+            =ClearCollect(colCard, DeckOfCards.GetCards(First(colDecks).deck_id,{count:1}));
+            Collect(colCardDealer, First(colCard).cards);
+        Text: ="Get Card for dealer"
+        Width: =170
+        X: =1014
+        Y: =710
+        ZIndex: =11
+
+    Button1_4 As button:
+        OnSelect: |
+            =Concurrent(
+                Clear(colCardDealer),
+                Clear(colCardPlayer)
+            );
+        Text: ="Clear collections"
+        Width: =188
+        Y: =728
+        ZIndex: =12
+
+    Gallery1 As gallery.galleryHorizontal:
+        DelayItemLoading: =true
+        Height: =220
+        Items: =colCardDealer
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplateSize: =156
+        Width: =1366
+        ZIndex: =13
+
+        Image1 As image:
+            Height: =210
+            Image: =ThisItem.image
+            OnSelect: =Select(Parent)
+            Width: =161
+            ZIndex: =1
+
+    Gallery1_1 As gallery.galleryHorizontal:
+        DelayItemLoading: =true
+        Height: =220
+        Items: =colCardPlayer
+        LoadingSpinner: =LoadingSpinner.Data
+        ShowScrollbar: =false
+        TemplateSize: =156
+        Width: =1366
+        Y: =456
+        ZIndex: =14
+
+        Image1_1 As image:
+            Height: =210
+            Image: =ThisItem.image
+            OnSelect: =Select(Parent)
+            Width: =156
+            ZIndex: =1
 
