@@ -157,3 +157,39 @@ scrGame As screen:
         Y: =236
         ZIndex: =19
 
+    Label4_1 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Text: |-
+            =//If(!IsNumeric(FirstCard.value),10 ,FirstCard.value) + If(!IsNumeric(SecondCard.value),10 ,SecondCard.value)
+            Sum(colCardPlayer,If(!IsNumeric(value),10,value))
+        X: =602
+        Y: =628
+        ZIndex: =20
+
+    Label4_2 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Text: |-
+            =//If(!IsNumeric(FirstCard.value),10 ,FirstCard.value) + If(!IsNumeric(SecondCard.value),10 ,SecondCard.value)
+            If(varPlayerTurn,If(!IsNumeric(First(colCardDealer).value),10,First(colCardDealer).value),Sum(colCardDealer,If(!IsNumeric(value),10,value)))
+        Width: =165
+        X: =594
+        Y: =294
+        ZIndex: =21
+
+    Button1 As button:
+        OnSelect: =Select(btnGetCardPlayer)
+        Text: ="Draw"
+        X: =699
+        Y: =676
+        ZIndex: =22
+
+    Button1_2 As button:
+        Text: ="Stay"
+        X: =501
+        Y: =676
+        ZIndex: =23
+
