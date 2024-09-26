@@ -1,6 +1,6 @@
 scrGame As screen:
     OnVisible: |-
-        =Set(varPlayerTurn, false);
+        =Set(varDealerTurn, true);
         Set(varGame, 0);
 
     btnGetDeck As button:
@@ -8,8 +8,8 @@ scrGame As screen:
         OnSelect: |-
             =ClearCollect(colDecks, DeckOfCards.GetDecks({deck_count:6}))
         Text: ="Get Deck"
-        X: =1107
-        Y: =621
+        X: =1100
+        Y: =628
         ZIndex: =1
 
     Button1_1 As button:
@@ -51,8 +51,8 @@ scrGame As screen:
             Set(SecondCard, Index(colCardInfo, 2));
             */
         Text: ="Get Card for player"
-        X: =1206
-        Y: =708
+        X: =1184
+        Y: =694
         ZIndex: =10
 
     btnGetCardDealer As button:
@@ -62,8 +62,8 @@ scrGame As screen:
             Collect(colCardDealer, First(colCard).cards);
         Text: ="Get Card for dealer"
         Width: =170
-        X: =1014
-        Y: =710
+        X: =1003
+        Y: =694
         ZIndex: =11
 
     btnClearCards As button:
@@ -121,7 +121,7 @@ scrGame As screen:
     imgDealerCard As image:
         Height: =154
         Image: =back
-        Visible: =varPlayerTurn
+        Visible: =!varDealerTurn
         Width: =111
         X: =641
         Y: =136
@@ -156,4 +156,118 @@ scrGame As screen:
         X: =443
         Y: =236
         ZIndex: =19
+
+    Label4_1 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Text: |+
+            =//If(!IsNumeric(FirstCard.value),10 ,FirstCard.value) + If(!IsNumeric(SecondCard.value),10 ,SecondCard.value)
+            //Sum(colCardPlayer,If(!IsNumeric(value),10,value))
+            Sum(
+                colCardPlayer,
+                If(
+                    !IsNumeric(value),
+                    If(
+                        value = "ACE",
+                        If(
+                            Sum(
+                                colCardPlayer,
+                                If(!IsNumeric(value) && value <> "ACE", 10, value)
+                            ) + 11 > 21,
+                            1,
+                            11
+                        ),
+                        10
+                    ),
+                    value
+                )
+            )
+            
+            
+        X: =602
+        Y: =628
+        ZIndex: =20
+
+    Label4_2 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Text: |-
+            =//If(!IsNumeric(FirstCard.value),10 ,FirstCard.value) + If(!IsNumeric(SecondCard.value),10 ,SecondCard.value)
+            If(
+                !varDealerTurn,
+                If(
+                    !IsNumeric(First(colCardDealer).value),
+                    If(
+                        First(colCardDealer).value = "ACE",
+                        11,
+                        10
+                    ),
+                    First(colCardDealer).value
+                ),
+                Sum(
+                    colCardDealer,
+                    If(
+                        !IsNumeric(value),
+                        If(
+                            value = "ACE",
+                            If(
+                                Sum(
+                                    colCardDealer,
+                                    value
+                                ) + 11 > 21,
+                                1,
+                                11
+                            ),
+                            10
+                        ),
+                        value
+                    )
+                )
+            )
+        Width: =165
+        X: =594
+        Y: =294
+        ZIndex: =21
+
+    Button1 As button:
+        OnSelect: =Select(btnGetCardPlayer)
+        Text: ="Draw"
+        X: =699
+        Y: =676
+        ZIndex: =22
+
+    Button1_2 As button:
+        OnSelect: |-
+            =Set(varDealerTurn,true);
+            Select(btnDealerTurn);
+        Text: ="Stay"
+        X: =501
+        Y: =676
+        ZIndex: =23
+
+    btnDealerTurn As button:
+        OnSelect: |
+            =
+        Text: ="Dealer Turn"
+        X: =188
+        Y: =511
+        ZIndex: =24
+
+    btnNextHand As button:
+        OnSelect: |-
+            =Concurrent(
+                Clear(colCardDealer),
+                Clear(colCardPlayer)
+            );
+            Set(varDealerTurn,false);
+            Select(btnGetCardPlayer);
+            Select(btnGetCardDealer);
+            Select(btnGetCardPlayer);
+            Select(btnGetCardDealer);
+        Text: ="Next hand"
+        X: =924
+        Y: =511
+        ZIndex: =25
 
