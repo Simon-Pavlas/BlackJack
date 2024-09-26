@@ -1,11 +1,12 @@
 scrGame As screen:
 
     Button1 As button:
+        Height: =55
         OnSelect: |-
             =ClearCollect(colDecks, DeckOfCards.GetDecks({deck_count:6}))
         Text: ="Get Deck"
-        X: =1110
-        Y: =75
+        X: =1122
+        Y: =165
         ZIndex: =1
 
     Button1_1 As button:
@@ -23,46 +24,43 @@ scrGame As screen:
             Set(NinethCard, Index(colCardInfo, 9));
             Set(TenthCard, Index(colCardInfo, 10));
         Text: ="Get Card"
-        X: =1110
-        Y: =192
+        X: =1122
+        Y: =343
         ZIndex: =4
 
     Image4 As image:
-        Height: =289
-        Image: =FirstCard.image
-        Width: =218
-        X: =406
-        Y: =232
+        Height: =213
+        Image: =//FirstCard.image
+        Width: =154
+        X: =622
+        Y: =555
         ZIndex: =5
 
     Image4_1 As image:
-        Height: =289
-        Image: =SecondCard.image
-        Width: =218
-        X: =647
-        Y: =232
+        Height: =213
+        Image: =//SecondCard.image
+        Width: =164
+        X: =776
+        Y: =555
         ZIndex: =6
 
     Label4 As label:
         Text: |-
-            ="Card value: " & FirstCard.value + SecondCard.value
-        X: =558
-        Y: =152
+            ="Card value: " & If(!IsNumeric(FirstCard.value),10 ,FirstCard.value) + If(!IsNumeric(SecondCard.value),10 ,SecondCard.value)
+        X: =570
+        Y: =502
         ZIndex: =7
 
     Label4_1 As label:
         Height: =80
         Text: ="Colekce dealer"
         Width: =515
-        X: =320
-        Y: =35
         ZIndex: =8
 
     Label4_2 As label:
         Height: =80
         Text: ="Colekce hrac"
         Width: =515
-        X: =320
-        Y: =575
+        Y: =378
         ZIndex: =9
 
