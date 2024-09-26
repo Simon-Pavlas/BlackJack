@@ -170,19 +170,14 @@ scrGame As screen:
                     !IsNumeric(value),
                     If(
                         value = "ACE",
-                        If(
-                            Sum(
-                                colCardPlayer,
-                                If(!IsNumeric(value) && value <> "ACE", 10, value)
-                            ) + 11 > 21,
-                            1,
-                            11
-                        ),
+                        0, // Temporarily treat ACE as 0 for initial sum calculation
                         10
                     ),
                     value
                 )
-            )
+            ) //+ 
+            //Sum(CountRows(Filter(colCardPlayer, value = "ACE"))
+            
             
             
         X: =602
