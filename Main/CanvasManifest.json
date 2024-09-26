@@ -10,7 +10,7 @@
     "MSAppStructureVersion": "2.0"
   },
   "Properties": {
-    "AppCopilotSchemaName": null,
+    "AppCopilotSchemaName": "",
     "AppCreationSource": "AppFromScratch",
     "AppDescription": "",
     "AppPreviewFlagsMap": {
@@ -79,6 +79,7 @@
       "pdffunction": false,
       "powerfxdecimal": false,
       "powerfxv1": false,
+      "preferpayamlv3inux": false,
       "primaryoutputpropertycoerciondeprecated": true,
       "proactivecontrolrename": false,
       "projectionmapping": true,
@@ -117,7 +118,7 @@
     "Id": "793a20f5-634f-44a8-9168-862bbca93ced",
     "InstrumentationKey": "",
     "LocalDatabaseReferences": "",
-    "ManualOfflineProfileId": null,
+    "ManualOfflineProfileId": "",
     "Name": "Blackjack",
     "OriginatingVersion": "1.343",
     "ParserErrorCount": 0,
