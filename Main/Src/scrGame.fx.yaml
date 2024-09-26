@@ -1,6 +1,6 @@
 scrGame As screen:
     OnVisible: |-
-        =Set(varPlayerTurn, false);
+        =Set(varDealerTurn, true);
         Set(varGame, 0);
 
     btnGetDeck As button:
@@ -121,7 +121,7 @@ scrGame As screen:
     imgDealerCard As image:
         Height: =154
         Image: =back
-        Visible: =varPlayerTurn
+        Visible: =varDealerTurn
         Width: =111
         X: =641
         Y: =136
@@ -174,7 +174,7 @@ scrGame As screen:
         Size: =15
         Text: |-
             =//If(!IsNumeric(FirstCard.value),10 ,FirstCard.value) + If(!IsNumeric(SecondCard.value),10 ,SecondCard.value)
-            If(varPlayerTurn,If(!IsNumeric(First(colCardDealer).value),10,First(colCardDealer).value),Sum(colCardDealer,If(!IsNumeric(value),10,value)))
+            If(varDealerTurn,If(!IsNumeric(First(colCardDealer).value),10,First(colCardDealer).value),Sum(colCardDealer,If(!IsNumeric(value),10,value)))
         Width: =165
         X: =594
         Y: =294
@@ -188,6 +188,7 @@ scrGame As screen:
         ZIndex: =22
 
     Button1_2 As button:
+        OnSelect: =Set(varDealerTurn,true)
         Text: ="Stay"
         X: =501
         Y: =676
