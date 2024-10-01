@@ -12,6 +12,7 @@
     "Button1": 18,
     "Button1_1": 26,
     "Button1_2": 19,
+    "Button2": 30,
     "Gallery1": 11,
     "Gallery1_2": 8,
     "galleryTemplate1": 12,
@@ -33,7 +34,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "10/01/2024 09:40:38",
+  "HeaderLastSavedDateTimeUTC": "10/01/2024 11:18:50",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "6dc2a988-df4a-4e00-a597-cc71f167e14a": "\"/providers/microsoft.powerapps/apis/shared_deck-20of-20cards-5f72608f2bbb7f5478-5f804bd9b64a9371b3/connections/077aba6025174d2fb6ad07941dcb1834\""
@@ -55,11 +56,11 @@
   "OrderPcfTemplate": {},
   "OrderTemplate": {},
   "OrderXMLTemplate": {
-    "button": 4,
-    "gallery": 1,
-    "image": 2,
-    "label": 0,
-    "timer": 3
+    "button": 0,
+    "gallery": 2,
+    "image": 3,
+    "label": 1,
+    "timer": 4
   },
   "OverridablePropertiesEntry": {
     "App": {},
@@ -72,6 +73,7 @@
     "Button1": {},
     "Button1_1": {},
     "Button1_2": {},
+    "Button2": {},
     "Gallery1": {},
     "Gallery1_2": {},
     "galleryTemplate1": {},
@@ -104,6 +106,7 @@
     "Button1": 10,
     "Button1_1": 18,
     "Button1_2": 11,
+    "Button2": 0,
     "Gallery1": 5,
     "Gallery1_2": 4,
     "galleryTemplate1": 24,

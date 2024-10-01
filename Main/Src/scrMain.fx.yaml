@@ -1,11 +1,20 @@
 scrMain As screen:
 
     Label1 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
         Height: =111
-        Size: =18
-        Text: ="Welcome to my blackjack game"
-        Width: =407
-        X: =480
-        Y: =90
+        Size: =24
+        Text: ="Testing custom connectors and their send and response times"
+        Width: =644
+        X: =361
+        Y: =98
         ZIndex: =1
+
+    Button2 As button:
+        OnSelect: =Navigate(scrGame)
+        Text: ="Play"
+        X: =603
+        Y: =402
+        ZIndex: =2
 
