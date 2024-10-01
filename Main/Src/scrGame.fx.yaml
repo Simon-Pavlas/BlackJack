@@ -43,7 +43,6 @@ scrGame As screen:
         Height: =60
         OnSelect: |
             =ClearCollect(colCard, DeckOfCards.GetCards(First(colDecks).deck_id,{count:1}));
-            
             Collect(colCardPlayer, First(colCard).cards);
             
             /*
@@ -257,10 +256,19 @@ scrGame As screen:
                 Clear(colCardPlayer)
             );
             Set(varDealerTurn,false);
-            Select(btnGetCardPlayer);
-            Select(btnGetCardDealer);
-            Select(btnGetCardPlayer);
-            Select(btnGetCardDealer);
+            
+            //Select(btnGetCardPlayer);
+            ClearCollect(colCard, DeckOfCards.GetCards(First(colDecks).deck_id,{count:1}));
+            Collect(colCardPlayer, First(colCard).cards);
+            //Select(btnGetCardDealer);
+            ClearCollect(colCard, DeckOfCards.GetCards(First(colDecks).deck_id,{count:1}));
+            Collect(colCardDealer, First(colCard).cards);
+            //Select(btnGetCardPlayer);
+            ClearCollect(colCard, DeckOfCards.GetCards(First(colDecks).deck_id,{count:1}));
+            Collect(colCardPlayer, First(colCard).cards);
+            //Select(btnGetCardDealer);
+            ClearCollect(colCard, DeckOfCards.GetCards(First(colDecks).deck_id,{count:1}));
+            Collect(colCardDealer, First(colCard).cards);
         Text: ="Next hand"
         X: =924
         Y: =511
